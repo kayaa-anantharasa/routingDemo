@@ -1,0 +1,14 @@
+<h3>Form array</h3>
+<form [formGroup]="form">
+  <ng-container formArrayName="items">
+    <div *ngFor="let addressGroup of form.get('items').controls;let i = index">
+      <ng-container [formGroupName]="i">
+        <input placeholder="Enter state name" formControlName="state" />
+        <input placeholder="Enter city" formControlName="city" />
+        <input placeholder="Enter Country" formControlName="country" />
+        <button (click)="remove()">Remove</button>
+      </ng-container>
+    </div>
+  </ng-container>
+</form>
+<button (click)="addItems(i)">Add</button>
